@@ -59,8 +59,8 @@ def sense (colors, p, measurement, sensor_right):
     q = p
     #Update Belief
     s = 0.0
-    for i in range(len(p)):
-        for j in range(len(p[i])):
+    for i, row in enumerate(p):
+        for j, item in enumerate(row):
             if measurement == colors[i][j]:
                 q[i][j] = p[i][j] * sensor_right
             else:
@@ -91,7 +91,7 @@ def move2(p, motion, p_move): # alternative method
     p = np.array(p)
     q = q * p_move + p * (1 - p_move)
     return q 
-    
+
 def show(p):
     rows = ['[' + ','.join(map(lambda x: '{0:.5f}'.format(x),r)) + ']' for r in p]
     print '[' + ',\n '.join(rows) + ']'
