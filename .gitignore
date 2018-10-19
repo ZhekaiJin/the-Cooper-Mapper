@@ -35,4 +35,5 @@
 cmake-build-debug/
 .idea/
 
-
+#Dependency
+rplidar_ros/
