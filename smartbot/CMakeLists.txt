@@ -136,6 +136,7 @@ include_directories(
  add_executable(${PROJECT_NAME}_dummy_node src/random_controller.cpp)
  add_executable(${PROJECT_NAME}_report_node src/range_reporter.cpp)
  add_executable(${PROJECT_NAME}_wander_node src/wander.cpp)
+ add_executable(${PROJECT_NAME}_key_node src/teleop_key_node.cpp)
 
 
 
@@ -149,13 +150,15 @@ include_directories(
 ## same as for the library above
  add_dependencies(${PROJECT_NAME}_dummy_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
  add_dependencies(${PROJECT_NAME}_report_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
- add_dependencies(${PROJECT_NAME}_wander_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(${PROJECT_NAME}_wander_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(${PROJECT_NAME}_key_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 
 ## Specify libraries to link a library or executable target against
  target_link_libraries(${PROJECT_NAME}_dummy_node ${catkin_LIBRARIES})
  target_link_libraries(${PROJECT_NAME}_report_node ${catkin_LIBRARIES})
- target_link_libraries(${PROJECT_NAME}_wander_node ${catkin_LIBRARIES})
+target_link_libraries(${PROJECT_NAME}_wander_node ${catkin_LIBRARIES})
+ target_link_libraries(${PROJECT_NAME}_key_node ${catkin_LIBRARIES})
 
 
 
