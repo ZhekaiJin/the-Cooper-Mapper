@@ -1,9 +1,12 @@
 #include "encoder.h"
 
-Encoder::Encoder(jetsonGPIONumber inA, jetsonGPIONumber inB){
-    this->inA = inA;
+Encoder::Encoder(jetsonTX1GPIONumber inA, jetsonTX1GPIONumber inB){
+	//std::map<c_string, jetsonGPIONumber> xmap;
+	//xmap["pin32"] = pin32; 
+	//xmap["pin13"] = pin13;
+	//xmap ["pin7"] = pin7;
+	this->inA = inA;
     this->inB = inB;
-
 }
 void Encoder::monitorEncoder()
 {
