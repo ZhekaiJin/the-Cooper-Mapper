@@ -1,0 +1,5 @@
+<launch>
+  <node name="lencoder" pkg="encoder" type="encoder" args="l 07 33" respawn="false" launch-prefix="sudo" />
+  <node name="rencoder" pkg="encoder" type="encoder" args="r 07 33" respawn="false" launch-prefix="sudo" />
+  
+</launch>
