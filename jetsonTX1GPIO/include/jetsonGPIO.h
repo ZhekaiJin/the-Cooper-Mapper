@@ -43,6 +43,10 @@
  * Constants
  ****************************************************************/
  
+#ifdef __cplusplus
+extern "C" {
+#endif
+ 
 #define SYSFS_GPIO_DIR "/sys/class/gpio"
 #define POLL_TIMEOUT (3 * 1000) /* 3 seconds */
 #define MAX_BUF 64
@@ -118,6 +122,8 @@ int gpioOpen ( jetsonGPIO gpio ) ;
 int gpioClose ( int fileDescriptor ) ;
 int gpioActiveLow ( jetsonGPIO gpio, unsigned int value ) ;
 
-
+#ifdef __cplusplus
+}
+#endif
 
 #endif // JETSONGPIO_H_

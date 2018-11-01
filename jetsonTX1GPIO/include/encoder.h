@@ -1,3 +1,7 @@
+
+#ifndef ENCODER_H
+#define ENCODER_H
+
 #include <iostream>
 #include <thread>
 #include <unistd.h>
@@ -20,9 +24,11 @@ public:
     const float wheelDia = 0.1; // the diamater of the wheel, used for calculating the distance
     float distance;
 
+    void init();
     void monitorEncoder();
     void publish(const std_msgs::Int16::ConstPtr& msg);
     ros::Publisher pub;
 };
 
 
+#endif
