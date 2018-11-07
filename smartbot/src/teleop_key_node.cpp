@@ -3,7 +3,7 @@
 //
 // Instruction:
 #include "ros/ros.h"
-#include "std_msgs/String.h"
+#include "geometry_msgs/Twist.h"
 #include <sstream>
 #include <termios.h>
 #include <sys/select.h>
@@ -18,7 +18,7 @@ int main(int argc, char** argv) {
     ros::NodeHandle n;
 
     //notify the master registar
-    ros::Publisher publisher = n.advertise<std_msgs::String>("keys", 1); // setting queue size to be 1 for real time controlling
+    ros::Publisher publisher = n.advertise<geometry_msgs::Twist>("twist", 1); // setting queue size to be 1 for real time controlling
 
     ros::Rate loop_rate(10); //ok we will run this at 10 HZ and this will only be in effect with the call "sleep"
 
@@ -48,9 +48,50 @@ int main(int argc, char** argv) {
     while (ros::ok()) {
 		ROS_INFO("waiting for character\n");
         ch = getchar();
-        std_msgs::String msg;
-        std::string s(1, ch);
-        msg.data = s.c_str();
+        geometry_msgs::Twist msg;
+        if (ch == 'q'){
+			ROS_INFO("Shutting Down...\n");
+			ros::shutdown();
+        } else if (ch == 'w'){
+			msg.linear.x = 0.5;
+			msg.linear.y = 0;//unit? //axis?
+			msg.linear.z = 0;
+			msg.angular.x = 0;
+			msg.angular.y = 0;//unit? //axis?
+			msg.angular.z = 0;
+			
+		} else if (ch == 'a'){
+			msg.linear.x = 0.5;
+			msg.linear.y = 0;//unit? //axis?
+			msg.linear.z = 0;
+			msg.angular.x = 0;
+			msg.angular.y = 0;//unit? //axis?
+			msg.angular.z = 2;
+			
+		} else if (ch == 'd'){
+			msg.linear.x = 0.5;
+			msg.linear.y = 0;//unit? //axis?
+			msg.linear.z = 0;
+			msg.angular.x = 0;
+			msg.angular.y = 0;//unit? //axis?
+			msg.angular.z = -2;
+			
+		} else if (ch == 's'){
+			msg.linear.x = -0.5;
+			msg.linear.y = 0;//unit? //axis?
+			msg.linear.z = 0;
+			msg.angular.x = 0;
+			msg.angular.y = 0;//unit? //axis?
+			msg.angular.z = 0;
+			
+		} else {
+			msg.linear.x = 0;
+			msg.linear.y = 0;//unit? //axis?
+			msg.linear.z = 0;
+			msg.angular.x = 0;
+			msg.angular.y = 0;//unit? //axis?
+			msg.angular.z = 0;
+		}
         publisher.publish(msg);
         ros::spinOnce(); //let it call any callback
         loop_rate.sleep();
