@@ -53,7 +53,7 @@ int main(int argc, char** argv) {
 			ROS_INFO("Shutting Down...\n");
 			ros::shutdown();
         } else if (ch == 'w'){
-			msg.linear.x = 0.5;
+			msg.linear.x = 0.2;
 			msg.linear.y = 0;//unit? //axis?
 			msg.linear.z = 0;
 			msg.angular.x = 0;
@@ -61,23 +61,23 @@ int main(int argc, char** argv) {
 			msg.angular.z = 0;
 			
 		} else if (ch == 'a'){
-			msg.linear.x = 0.5;
+			msg.linear.x = 0.2;
 			msg.linear.y = 0;//unit? //axis?
 			msg.linear.z = 0;
 			msg.angular.x = 0;
 			msg.angular.y = 0;//unit? //axis?
-			msg.angular.z = 2;
+			msg.angular.z = 1;
 			
 		} else if (ch == 'd'){
-			msg.linear.x = 0.5;
+			msg.linear.x = 0.2;
 			msg.linear.y = 0;//unit? //axis?
 			msg.linear.z = 0;
 			msg.angular.x = 0;
 			msg.angular.y = 0;//unit? //axis?
-			msg.angular.z = -2;
+			msg.angular.z = -1;
 			
 		} else if (ch == 's'){
-			msg.linear.x = -0.5;
+			msg.linear.x = -0.2;
 			msg.linear.y = 0;//unit? //axis?
 			msg.linear.z = 0;
 			msg.angular.x = 0;
