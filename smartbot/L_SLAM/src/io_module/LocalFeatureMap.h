@@ -46,7 +46,7 @@ private:
   std::deque<DataFrame::Ptr> data_queue;
   FrameUpdater frame_updater;
 
-  std::string _filesDirectory; // cube块保存、加载路径
+  std::string _filesDirectory; // cube_save
   double queue_distance_threshold;
 
   VoxelGrid
@@ -86,10 +86,7 @@ LocalFeatureMap<PointT>::getSurroundFeature(PointCloudPtr &surroundCorner,
                                             PointCloudPtr &surroundSurf) {
   surroundCorner->clear();
   surroundSurf->clear();
-
-  //???
-  //存取所有downsample后的特征点云，速度应该比取所有点云再一起做downsample快吧？
-  //并且是等价的？
+//downsampling
   for (const auto &frame : data_queue) {
     *surroundCorner += *frame->cornerCloudDS;
     *surroundSurf += *frame->surfCloudDS;
