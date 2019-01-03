@@ -2,7 +2,7 @@
 <package format="2">
   <name>smartbot</name>
   <version>0.0.1</version>
-  <description>The smartbot package which does some basic steering</description>
+  <description>The smartbot package provide utiliies of Lidar SLAM and basic Steering for now</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
