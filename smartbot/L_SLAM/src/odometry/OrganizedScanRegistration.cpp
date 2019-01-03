@@ -26,7 +26,7 @@ bool OrganisedScanRegistration::setup(ros::NodeHandle &node,
   if (privateNode.getParam("scanRings", _scanRings)) {
     ROS_INFO("Set scanRings: %d", _scanRings);
   }
-  
+
   _blindRaduis = privateNode.param<float>("blindRaduis", 2.5);
   _checkTimeDelay = privateNode.param<bool>("checkTimeDelay", false);
 
@@ -72,7 +72,7 @@ void OrganisedScanRegistration::handleCloudMessage(
   _last_seq = laserCloudMsg->header.seq;
   _cloud_new = true;
 
-  //clock_t beginT = clock(); 
+  //clock_t beginT = clock();
   // process(laserCloudIn, laserCloudMsg->header.stamp);
   //process(cloud_in, laserCloudMsg->header.stamp);
   //clock_t endT = clock();
@@ -86,7 +86,7 @@ void OrganisedScanRegistration::process(const CloudT &in,
     float time_delay = (ros::Time::now().toSec() - scanTime.toSec());
     if(fabs(time_delay)>0.05){
       ROS_WARN("PointCloud delay %f, if not using rosbag, this may be a problem!", time_delay);
-    }    
+    }
   }
 
   size_t cloudSize = in.size();

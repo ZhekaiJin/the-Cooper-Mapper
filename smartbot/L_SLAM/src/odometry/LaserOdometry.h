@@ -50,7 +50,7 @@ public:
   void spin();
 
   void process();
-  
+
   void scanMatch();
 
 protected:

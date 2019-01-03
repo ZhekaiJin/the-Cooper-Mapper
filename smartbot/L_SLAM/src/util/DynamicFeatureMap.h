@@ -137,7 +137,7 @@ public:
     // std::ofstream fout(outFilePath);
     if(!fin)
       return false;
-    
+
     int count, type, i, j, k, size = 0;
     while(!fin.eof())
     {
@@ -179,7 +179,7 @@ public:
       fout << count << " " << type << " " << i-x << " " << j-y << " " << k-z << " "<<size << std::endl;;
     }
   }
-  
+
   inline bool isIndexValid(int i, int j, int k) {
     if (0 <= i && i < _cube._width && 0 <= j && j < _cube._height && 0 <= k &&
         k < _cube._depth)
@@ -188,7 +188,7 @@ public:
       return false;
   }
 
-  //out 
+  //out
   inline void update(const PointT &sensorGlo,  const Eigen::Vector3d &sensorUpDir);
   inline void getSurroundFeature(PointCloud &surroundCorner, PointCloud &surroundSurf);
   inline bool getFullMap(PointCloudPtr &mapCloud);
@@ -213,13 +213,13 @@ public:
   inline bool scanMatchScan(const PointCloudConstPtr &CornerCloud,
                               const PointCloudConstPtr &SurfCloud,
                               Eigen::Isometry3f &relative_pose);
-                              
+
   //* global coordinate -> global coordinate index. e.g. (CellN, CellN, CellN) -> (1, 1, 1)
   inline void Glo2GloIdx(Point3d &gloIdx, const Eigen::Vector3d &glo);
 
   inline void Glo2GloIdx(Point3d &gloIdx, const PointT &glo);
 
-  //* golbal coordinate index -> local positive index 
+  //* golbal coordinate index -> local positive index
   inline void GloIdx2LocIdx(Point3d &locIdx, const Point3d &gloIdx, const Point3d &sensorGloIdx);
   //* local index -> local positive index
   inline void locIdx2LocPosIdx(Point3d &locPosIdx, const Point3d &locIdx);
@@ -254,14 +254,14 @@ private:
 
   bool OutRange(const Point3d &point, const Point3d &center)
   {
-    if(point._width < center._width - _cube._width / 2 || point._width > center._width + _cube._width / 2 || point._height < center._height - _cube._height / 2 
+    if(point._width < center._width - _cube._width / 2 || point._width > center._width + _cube._width / 2 || point._height < center._height - _cube._height / 2
       || point._height > center._height + _cube._height / 2 || point._depth < center._depth - _cube._depth / 2 || point._depth > center._depth + _cube._depth / 2)
     {
       return 1;
     }
     return 0;
   }
-  
+
 private:
   Point3d _cube; // cube的边长
   Point3d _sensorGloId; // 传感器全局id
@@ -277,7 +277,7 @@ private:
   PointCloudCube<PointT> _cornerCube; // 雷达新读入的角特征点
   PointCloudCube<PointT> _surfCube; // 雷达新读入的面特征点
   PointCloudCube<PointT> _oldCornerCube; // 从硬盘中读入的角特征点
-  PointCloudCube<PointT> _oldSurfCube; // 从硬盘中读入的面特征点 
+  PointCloudCube<PointT> _oldSurfCube; // 从硬盘中读入的面特征点
 
   map<Point3d, int> _surfGloIdxPCDName;
   map<Point3d, int> _cornerGloIdxPCDName;
@@ -309,7 +309,7 @@ inline void DynamicFeatureMap<PointT>::Glo2GloIdx(Point3d &gloIdx, const Eigen::
 {
   gloIdx._width  = (int) round(glo(0) / _worldCubeSize);
   gloIdx._height = (int) round(glo(1) / _worldCubeSize);
-  gloIdx._depth  = (int) round(glo(2) / _worldCubeSize);  
+  gloIdx._depth  = (int) round(glo(2) / _worldCubeSize);
 }
 
 template <typename PointT>
@@ -317,7 +317,7 @@ inline void DynamicFeatureMap<PointT>::Glo2GloIdx(Point3d &gloIdx, const PointT 
 {
   gloIdx._width  = (int) round(glo.x / _worldCubeSize);
   gloIdx._height = (int) round(glo.y / _worldCubeSize);
-  gloIdx._depth  = (int) round(glo.z / _worldCubeSize);  
+  gloIdx._depth  = (int) round(glo.z / _worldCubeSize);
 }
 
 template <typename PointT>
@@ -325,7 +325,7 @@ inline void DynamicFeatureMap<PointT>::GloIdx2LocIdx(Point3d &locIdx, const Poin
 {
   locIdx._width  = gloIdx._width  - sensorGloIdx._width;
   locIdx._height = gloIdx._height - sensorGloIdx._height;
-  locIdx._depth  = gloIdx._depth  - sensorGloIdx._depth;  
+  locIdx._depth  = gloIdx._depth  - sensorGloIdx._depth;
 }
 
 template <typename PointT>
@@ -487,7 +487,7 @@ inline std::string DynamicFeatureMap<PointT>::CloudFileName(const Point3d &gloId
     else
       return "";
   }
-    
+
   else
   {
     if(_surfGloIdxPCDName.count(gloIdx) > 0)
@@ -495,7 +495,7 @@ inline std::string DynamicFeatureMap<PointT>::CloudFileName(const Point3d &gloId
     else
       return "";
   }
-    
+
   s = _filePath + fileName;
   return s;
 }
@@ -517,7 +517,7 @@ inline void DynamicFeatureMap<PointT>::update(const PointT &sensorGlo, const Eig
           Point3d gloIdx, locIdx, locPosIdx;
           gloIdx[0] = sensorGloIdx[0] + i;
           gloIdx[1] = sensorGloIdx[1] + j;
-          gloIdx[2] = sensorGloIdx[2] + k; 
+          gloIdx[2] = sensorGloIdx[2] + k;
           this->GloIdx2LocIdx(locIdx, gloIdx, sensorGloIdx);
           this->locIdx2LocPosIdx(locPosIdx, locIdx);
           int idxVal = locPosIdx2IndexValue(locPosIdx);
@@ -553,8 +553,8 @@ inline void DynamicFeatureMap<PointT>::update(const PointT &sensorGlo, const Eig
     }
     _firstRead = 0;
   }
-  else if(sensorGloIdx[0] != _sensorGloId._width  || 
-      sensorGloIdx[1] != _sensorGloId._height || 
+  else if(sensorGloIdx[0] != _sensorGloId._width  ||
+      sensorGloIdx[1] != _sensorGloId._height ||
       sensorGloIdx[2] != _sensorGloId._depth)
   {
     // TO DO: recover this sentence.
@@ -625,7 +625,7 @@ inline void DynamicFeatureMap<PointT>::update(const PointT &sensorGlo, const Eig
         for(int k = 0; k < _cube._depth; k ++)
           if(tIndexMap[toIndex(i, j, k)] != -1)
             _indexMap[toIndex(i, j, k)] = tIndexMap[toIndex(i, j, k)];
-    for(int i = 0; i < oldRAM.size(); i ++)//* arrange old RAM for new data 
+    for(int i = 0; i < oldRAM.size(); i ++)//* arrange old RAM for new data
     {
       Point3d locIdx, locPosIdx;
       this->GloIdx2LocIdx(locIdx, newGloIdx[i], sensorGloIdx);
@@ -745,12 +745,12 @@ inline double DynamicFeatureMap<PointT>::VectorAngleDeg(const Eigen::Vector3d &v
 
 //以locIdx为中心的小cube是否在雷达视场内
 template <typename PointT>
-inline bool DynamicFeatureMap<PointT>::InVerticalFov(const Point3d &locIdx, 
-                              const Eigen::Vector3d &senserLocRealIdx, 
+inline bool DynamicFeatureMap<PointT>::InVerticalFov(const Point3d &locIdx,
+                              const Eigen::Vector3d &senserLocRealIdx,
                               const Eigen::Vector3d &sensorUpDir)
 {
   double d[2] = {-0.5, 0.5};
-  int upNum = 0, downNum = 0;//* up_num/down_num: The number of points above/below the field of view 
+  int upNum = 0, downNum = 0;//* up_num/down_num: The number of points above/below the field of view
   double minDis = -1.0;
   for(int dx = 0; dx < 2; dx ++)
   {
@@ -770,7 +770,7 @@ inline bool DynamicFeatureMap<PointT>::InVerticalFov(const Point3d &locIdx,
       }
     }
   }
-  // upNum == 8 || downNum == 8 || 
+  // upNum == 8 || downNum == 8 ||
   if(minDis > _lidarValidDistance) return 0;
   return 1;
 }
@@ -781,7 +781,7 @@ inline void DynamicFeatureMap<PointT>::computeActiveAera(const PointT &sensorGlo
   Point3d sensorGloIdx;
   Glo2GloIdx(sensorGloIdx, sensorGlo);
   Eigen::Vector3d senseLocoRealIdx =
-          Eigen::Vector3d(sensorGlo.x / _worldCubeSize - sensorGloIdx._width, sensorGlo.y / _worldCubeSize - sensorGloIdx._height, 
+          Eigen::Vector3d(sensorGlo.x / _worldCubeSize - sensorGloIdx._width, sensorGlo.y / _worldCubeSize - sensorGloIdx._height,
                             sensorGlo.z / _worldCubeSize - sensorGloIdx._depth);
   int window_size = std::ceil(_lidarValidDistance / _worldCubeSize);
   for(int i = -window_size; i <= window_size; i ++)
@@ -796,7 +796,7 @@ inline void DynamicFeatureMap<PointT>::computeActiveAera(const PointT &sensorGlo
         if((!i && !j && !k) || InVerticalFov(Point3d(i, j, k), senseLocoRealIdx, sensorUpDir))
         {
           _cubeValidInd.push_back(locPosIdx2IndexValue(Point3d(i + _cube._width / 2, j + _cube._height / 2, k + _cube._depth / 2)));
-          
+
         }
       }
     }

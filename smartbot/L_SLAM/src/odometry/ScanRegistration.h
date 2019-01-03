@@ -294,7 +294,7 @@ protected:
       tmp[k ++] = sortArray[i ++];
     while(j <= n)
       tmp[k ++] = sortArray[j ++];
-    
+
     for(int i = 0; i < k; i ++)
       sortArray[first + i] = tmp[i];
   }

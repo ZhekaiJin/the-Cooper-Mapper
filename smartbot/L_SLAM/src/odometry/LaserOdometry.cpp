@@ -114,13 +114,13 @@ bool LaserOdometry::setup(ros::NodeHandle &node, ros::NodeHandle &privateNode) {
   _subSurfPointsLessFlat = node.subscribe<sensor_msgs::PointCloud2>(
       "/laser_cloud_less_flat", 2, &LaserOdometry::laserCloudLessFlatHandler,
       this);
-  
+
   if(_receiveFullCloud){
     _subLaserCloudFullRes = node.subscribe<sensor_msgs::PointCloud2>(
         "/velodyne_cloud_2", 2, &LaserOdometry::laserCloudFullResHandler, this);
-    
+
   }
-  
+
   spin_thread = std::thread(&LaserOdometry::spin, this);
 
   return true;
@@ -676,12 +676,12 @@ void LaserOdometry::publishResult() {
                   "/laser_odom");
   publishCloudMsg(_pubLaserCloudSurfLast, *_lastSurfaceCloud, sweepTime,
                   "/laser_odom");
-  
+
   if (_receiveFullCloud && _sendRegisteredCloud) {
     transformToEnd(_laserCloud); // transform full resolution cloud to sweep end
                                // before sending it
     publishCloudMsg(_pubLaserCloudFullRes, *_laserCloud, sweepTime, "/laser_odom");
-  
+
   }
 }
 

@@ -1,10 +1,6 @@
-//
-// Created by tong on 17-11-24.
-//
-
 #include "transPointCLoud.h"
 
-//DOF6 POSE FREOM IMU XINGWANG
+//DOF6 POSE FREOM IMU
 void transMatrixContruct(Eigen::VectorXd pos,
                          Matrix4Xd &MTrans, Matrix4Xd &MTrans_inv)
 {
@@ -15,8 +11,6 @@ void transMatrixContruct(Eigen::VectorXd pos,
     //pt.y = longitude
     //pt.z = height
 
-    //已知local坐标系在world坐标系下的平移和旋转量，
-    ///计算local坐标系下坐标到world坐标系下的转换和逆变换
     Matrix4Xd trans = Matrix4Xd::Identity(4,4);
     Matrix4Xd trans_inv = Matrix4Xd::Identity(4,4);
     Matrix4Xd Rx = Matrix4Xd::Identity(4,4);
@@ -49,8 +43,6 @@ void transMatrixContruct(Eigen::VectorXd pos,
 void transMatrixContruct(std::vector<double> pos,
                          Matrix4Xd &MTrans, Matrix4Xd &MTrans_inv)
 {
-    //已知local坐标系在world坐标系下的平移和旋转量，
-    ///计算local坐标系下坐标到world坐标系下的转换和逆变换
     Matrix4Xd trans = Matrix4Xd::Identity(4,4);
     Matrix4Xd trans_inv = Matrix4Xd::Identity(4,4);
     Matrix4Xd Rx = Matrix4Xd::Identity(4,4);
@@ -83,12 +75,10 @@ void transMatrixContruct(std::vector<double> pos,
 void transMatrixContruct_novatel(std::vector<double> pos,
                                  Matrix4Xd &MTrans, Matrix4Xd &MTrans_inv)
 {
-    //已知local坐标系在world坐标系下的平移和旋转量，
-    ///计算local坐标系下坐标到world坐标系下的转换和逆变换
+
     Matrix4Xd trans = Matrix4Xd::Identity(4,4);
     Matrix4Xd trans_inv = Matrix4Xd::Identity(4,4);
 
-    //平移量
     trans(0,3) = pos[0];
     trans(1,3) = pos[1];
     trans(2,3) = pos[2];
@@ -150,7 +140,6 @@ pcl::PointXYZI transPointwithMatrix(pcl::PointXYZI &ptIn, Matrix4Xd Trans)
     ptOut.y = Mpt_out(1,0) / Mpt_out(3,0);
     ptOut.z = Mpt_out(2,0) / Mpt_out(3,0);*/
 
-    //------------Point------------//速度更快！！！
     ptOut.x = ptIn.x * Trans(0,0) + ptIn.y * Trans(0,1) + ptIn.z * Trans(0,2) + Trans(0,3);
     ptOut.y = ptIn.x * Trans(1,0) + ptIn.y * Trans(1,1) + ptIn.z * Trans(1,2) + Trans(1,3);
     ptOut.z = ptIn.x * Trans(2,0) + ptIn.y * Trans(2,1) + ptIn.z * Trans(2,2) + Trans(2,3);

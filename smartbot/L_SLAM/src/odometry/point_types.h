@@ -101,4 +101,3 @@ POINT_CLOUD_REGISTER_POINT_STRUCT(driver_pointcloud::PointXYZd,
 POINT_CLOUD_REGISTER_POINT_STRUCT(driver_pointcloud::PointXYZRGBd,
                                   (double, x, x)(double, y, y)(double, z, z)(float, rgb, rgb))
 #endif // __DRIVER_POINTCLOUD_POINT_TYPES_H
-

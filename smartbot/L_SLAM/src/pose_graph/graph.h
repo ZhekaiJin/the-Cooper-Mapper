@@ -162,8 +162,8 @@ private:
   ros::Time _timeLaserOdometry2;
 
   bool _newLaserCloudCornerLast2;
-  bool _newLaserCloudSurfLast2; 
-  bool _newLaserCloudFullRes2; 
+  bool _newLaserCloudSurfLast2;
+  bool _newLaserCloudFullRes2;
   bool _newLaserOdometry2;
 };
 }

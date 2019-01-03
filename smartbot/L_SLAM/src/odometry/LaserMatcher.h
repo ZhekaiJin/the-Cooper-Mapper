@@ -87,7 +87,7 @@ protected:
   bool _dynamicMode; // use dynamic map manager or not
 
   std::string map_frame;
-  
+
   CloudI::Ptr _laserCloudCornerLast; ///< last corner points cloud
   CloudI::Ptr _laserCloudSurfLast;   ///< last surface points cloud
   CloudI::Ptr _laserCloudFullRes;    ///< last full resolution cloud

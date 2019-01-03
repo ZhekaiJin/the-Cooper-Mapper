@@ -10,10 +10,7 @@
 
 namespace lidar_slam {
 
-/*
-描述从旧坐标系到新坐标系的变换更新顺序（从左到右记符号，与矩阵乘法顺序相同，先变换的矩阵在最左边，后更新的矩阵在右边）
 
-*/
 using namespace std;
 template <typename Scalar>
 inline void getRotationYaw(Scalar yaw, Eigen::Matrix<Scalar, 3, 3> &t) {

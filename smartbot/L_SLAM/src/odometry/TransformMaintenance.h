@@ -37,7 +37,7 @@ public:
   typedef Eigen::Matrix<float, Eigen::Dynamic, 1> VectorXt;
   typedef Eigen::Matrix<float, Eigen::Dynamic, Eigen::Dynamic> MatrixXt;
 
-  TransformMaintenance() : que_size(200) { 
+  TransformMaintenance() : que_size(200) {
       initialize = false;
       lastCorrect = Eigen::Isometry3d::Identity();
    }
@@ -64,7 +64,7 @@ public:
                                               &TransformMaintenance::imuHandler, this);
 
     _pubLaserPredect = node.advertise<nav_msgs::Odometry>("/lidar_to_map", 5);
-    
+
       _subOdomAftMapped = node.subscribe<nav_msgs::Odometry>(
       "/lidar_to_map2", 5, &TransformMaintenance::odomAftMappedHandler,
       this);
@@ -93,7 +93,7 @@ public:
         });
 
     if (seek == imu_que.end()) {
-      ROS_INFO_STREAM("imu msg very slower than the lidar time"<< std::fixed 
+      ROS_INFO_STREAM("imu msg very slower than the lidar time"<< std::fixed
       <<"lidar time:"<< stamp << " imu newest time: " << (seek - 1)->header.stamp);
       que_mutex.unlock();
 
@@ -101,7 +101,7 @@ public:
     }
 
     if (seek == imu_que.begin()) {
-      ROS_INFO_STREAM("imu msg very faster than the lidar time"<< std::fixed 
+      ROS_INFO_STREAM("imu msg very faster than the lidar time"<< std::fixed
       <<"lidar time:"<< stamp << " imu oldest time: " << seek->header.stamp);
       que_mutex.unlock();
 
@@ -241,7 +241,7 @@ public:
     trans = Eigen::Isometry3d::Identity();
     trans.rotate(q1);
     trans.pretranslate(v1);
-    
+
     //std::cout<<"newest:"<<trans.matrix()<<std::endl;
     return true;
   }
@@ -261,12 +261,12 @@ public:
     //_pubLaserPredect.publish(odom_predict);
   }
 
-  void imuHandler(const sensor_msgs::Imu::ConstPtr &msg) { 
+  void imuHandler(const sensor_msgs::Imu::ConstPtr &msg) {
     addMsg(*msg);
     nav_msgs::Odometry odom;
     kf_mutex.lock();
-    if(predict(odom)) 
-        _pubLaserPredect.publish(odom);   
+    if(predict(odom))
+        _pubLaserPredect.publish(odom);
     kf_mutex.unlock();
 
 /*
@@ -290,7 +290,7 @@ public:
  bool predict(nav_msgs::Odometry& odom) {
      if(!initialize)
         return false;
-        
+
     sensor_msgs::Imu msg;
     int index = 1;
     if(!findNearestIMU(odom_correct.header.stamp, index))
@@ -298,9 +298,9 @@ public:
     const auto &position = odom_correct.pose.pose.position;
     const auto &orientation = odom_correct.pose.pose.orientation;
     const auto &linear = odom_correct.twist.twist.linear;
-  
+
     Eigen::Vector3f pos(position.x, position.y, position.z);
-    Eigen::Quaternionf quat(orientation.w, orientation.x, orientation.y, orientation.z); 
+    Eigen::Quaternionf quat(orientation.w, orientation.x, orientation.y, orientation.z);
     Eigen::Vector3f vel(linear.x, linear.y, linear.z);
 
 
@@ -333,7 +333,7 @@ public:
     return true;
   }
 
-  bool predict(const sensor_msgs::Imu::ConstPtr &msg, 
+  bool predict(const sensor_msgs::Imu::ConstPtr &msg,
               nav_msgs::Odometry& odom) {
       const auto &acc = (msg)->linear_acceleration;
       const auto &gyro = (msg)->angular_velocity;
@@ -341,7 +341,7 @@ public:
       ukf_pose_estimator->predict(
           (msg)->header.stamp, Eigen::Vector3f(acc.x, acc.y, acc.z),
           gyro_sign * Eigen::Vector3f(gyro.x, gyro.y, gyro.z));
-    
+
     Eigen::Isometry3f trans;
     trans.matrix() =
         ukf_pose_estimator->matrix() * Tli.inverse().matrix().cast<float>();
@@ -371,7 +371,7 @@ public:
 
   bool correct(const nav_msgs::Odometry& odom_correct,
               nav_msgs::Odometry& odom_predict) {
-    Eigen::Isometry3d trans_before, trans_after, trans_update;  
+    Eigen::Isometry3d trans_before, trans_after, trans_update;
     ros::Time stamp;
 
     Eigen::Isometry3d correct_pose;
@@ -449,7 +449,7 @@ public:
               << "\n quat:" << ukf_pose_estimator->quat().coeffs() << std::endl;
     */
   }
-  
+
   void imuStep(const sensor_msgs::Imu imu, double dt, Eigen::Vector3f& pos, Eigen::Quaternionf& quat, Eigen::Vector3f& vel) {
     auto &acc = imu.linear_acceleration;
     auto &gyro = imu.angular_velocity;
@@ -477,7 +477,7 @@ private:
   Eigen::Isometry3d Tli;
   std::deque<sensor_msgs::Imu> imu_que;
   std::deque<nav_msgs::Odometry> odom_que;
-  
+
   nav_msgs::Odometry odom_correct, odom_predict;
   int que_size;
   std::mutex que_mutex;

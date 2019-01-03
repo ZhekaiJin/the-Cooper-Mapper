@@ -1,7 +1,3 @@
-//
-// Created by tong on 17-11-14.
-//
-
 #ifndef HDL_GRABBER_UTMPROJECTION_H
 #define HDL_GRABBER_UTMPROJECTION_H
 #include <Eigen/Core>

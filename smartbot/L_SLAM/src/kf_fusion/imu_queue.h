@@ -82,7 +82,7 @@ public:
         });
 
     if (seek == imu_que.end()) {
-      ROS_INFO_STREAM("imu msg very slower than the lidar time"<< std::fixed 
+      ROS_INFO_STREAM("imu msg very slower than the lidar time"<< std::fixed
       <<"lidar time:"<< stamp << " imu newest time: " << (seek - 1)->header.stamp);
       que_mutex.unlock();
 
@@ -90,7 +90,7 @@ public:
     }
 
     if (seek == imu_que.begin()) {
-      ROS_INFO_STREAM("imu msg very faster than the lidar time"<< std::fixed 
+      ROS_INFO_STREAM("imu msg very faster than the lidar time"<< std::fixed
       <<"lidar time:"<< stamp << " imu oldest time: " << seek->header.stamp);
       que_mutex.unlock();
 
@@ -127,8 +127,8 @@ public:
     ukf_pose_estimator->correct(imu_pose, velocity);
     trans.matrix() =
         ukf_pose_estimator->matrix() * Tli.inverse().matrix().cast<float>();
-    
-    
+
+
     velocity = ukf_pose_estimator->vel();/*
     Eigen::Quaternionf q(imu_pose.rotation());
     std::cout << "correct:"

@@ -44,8 +44,8 @@ public:
 
 
   double get_accum_distance() const { return accum_distance; }
-  long get_unique_id() { return ++frame_id; } 
-  long get_frame_count() { return frame_count; } 
+  long get_unique_id() { return ++frame_id; }
+  long get_frame_count() { return frame_count; }
 
 private:
   // parameters

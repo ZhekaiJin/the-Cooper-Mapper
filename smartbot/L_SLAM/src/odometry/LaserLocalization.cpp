@@ -134,7 +134,7 @@ void LaserLocalization::optimizeTransform() {
                             _laserCloudCornerStackDS, _laserCloudSurfStackDS,
                             _lidarMappedNew);
 
-*/ 
+*/
 }
 
 void LaserLocalization::transformUpdate() {
@@ -159,7 +159,7 @@ void LaserLocalization::transformUpdate() {
     if(_velocity.norm()>30)
       _velocity = Eigen::Vector3f::Zero();
       Eigen::Vector3f velocity = _velocity;
-    imu_que.correct(lidarPose, cor_pos, velocity);    
+    imu_que.correct(lidarPose, cor_pos, velocity);
   }
   _lidarPoseLast = lidarPose;
   _timeLaserOdometryLast = _timeLaserOdometryMerged;

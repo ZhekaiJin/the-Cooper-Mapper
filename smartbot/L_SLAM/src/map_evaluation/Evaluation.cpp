@@ -7,8 +7,8 @@ Evaluation::Evaluation() {}
 
 Evaluation::~Evaluation() {}
 
-bool Evaluation::init(ros::NodeHandle &node, 
-                      ros::NodeHandle &privateNode) 
+bool Evaluation::init(ros::NodeHandle &node,
+                      ros::NodeHandle &privateNode)
 {
   _subGps =  node.subscribe<nav_msgs::Odometry>("/fpd", 5, &Evaluation::gpsHandler, this);
   _subLidarToMap = node.subscribe<nav_msgs::Odometry>("/lidar_to_map", 5, &Evaluation::lidarToMapHandler, this);
@@ -18,7 +18,7 @@ bool Evaluation::init(ros::NodeHandle &node,
   _averageDifferX = _averageDifferY = _averageDifferZ = _averageDifferDis = 0;
   _varianceDifferX = _varianceDifferY = _varianceDifferZ = _varianceDifferDis = 0;
   _maxDifferX = _maxDifferY = _maxDifferZ = _maxDifferDis = 0;
-  
+
   _spinThread = std::thread(&Evaluation::spin, this);
 
   return true;
@@ -45,23 +45,23 @@ void Evaluation::lidarToMapHandler(const nav_msgs::Odometry::ConstPtr &lidarToMa
   {
     if (i == 0 || _differTime[_lidarMsgNum] > fabs(_nowTime - _gpsTime[tmpId])) _differTime[_lidarMsgNum] = fabs(_nowTime - _gpsTime[tmpId]), corId = tmpId;
     else
-    { 
+    {
       break;
     }
-  } 
-  
+  }
+
   _differX[_lidarMsgNum] = fabs(lidarToMapMsg->pose.pose.position.x - _gpsX[corId]);
   _differY[_lidarMsgNum] = fabs(lidarToMapMsg->pose.pose.position.y - _gpsY[corId]);
   _differZ[_lidarMsgNum] = fabs(lidarToMapMsg->pose.pose.position.z - _gpsZ[corId]);
-  _differDis[_lidarMsgNum] = sqrt(_differX[_lidarMsgNum] * _differX[_lidarMsgNum] 
-                                  + _differY[_lidarMsgNum] * _differY[_lidarMsgNum] 
+  _differDis[_lidarMsgNum] = sqrt(_differX[_lidarMsgNum] * _differX[_lidarMsgNum]
+                                  + _differY[_lidarMsgNum] * _differY[_lidarMsgNum]
                                   + _differZ[_lidarMsgNum] * _differZ[_lidarMsgNum]);
   _maxDifferX = std::max(_maxDifferX, _differX[_lidarMsgNum]);
   _maxDifferY = std::max(_maxDifferY, _differY[_lidarMsgNum]);
   _maxDifferZ = std::max(_maxDifferZ, _differZ[_lidarMsgNum]);
   _maxDifferDis = std::max(_maxDifferDis, _differDis[_lidarMsgNum]);
-  
-  if(_differDis[_lidarMsgNum] <= 10) 
+
+  if(_differDis[_lidarMsgNum] <= 10)
     _lidarMsgNum ++;
   else // 误差过大，应该是没初始化好导致的
     printf("Not initialized\n");
@@ -74,7 +74,7 @@ void Evaluation::lidarToMapHandler(const nav_msgs::Odometry::ConstPtr &lidarToMa
   //           << "Variance Different Y:        " << _varianceDifferY << "\n"
   //           << "Variance Different Z:        " << _varianceDifferZ << "\n"
   //           << "Variance Different Distance: " << _varianceDifferDis << "\n";
-  
+
   if(_lidarMsgNum > LidarNum) printf("Lidars' number outrange!");
 }
 
@@ -102,7 +102,7 @@ void Evaluation::process()
     _varianceDifferX = _varianceDifferY = _varianceDifferZ = _varianceDifferDis = 0;
     for(int i = num - 1000; i < num; i ++)
     {
-      
+
     }
     for(int i = 0; i < num; i ++)
     {

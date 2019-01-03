@@ -36,7 +36,7 @@ private:
   double _differZ[LidarNum];
   double _differDis[LidarNum];
   double _differTime[LidarNum];
-  
+
   double _averageDifferX;
   double _averageDifferY;
   double _averageDifferZ;
@@ -56,6 +56,6 @@ private:
   double _nowTime;
 
   std::thread _spinThread;
-  
+
 };
 }

@@ -1,7 +1,3 @@
-//
-// Created by tong on 17-11-14.
-//
-
 #include "utmProjection.h"
 #include <proj_api.h>
 #include <math.h>

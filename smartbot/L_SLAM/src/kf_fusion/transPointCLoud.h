@@ -1,7 +1,3 @@
-//
-// Created by tong on 17-11-24.
-//
-
 #ifndef LOAM_VELODYNE_TRANSPOINTCLOUD_H
 #define LOAM_VELODYNE_TRANSPOINTCLOUD_H
 
