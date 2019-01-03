@@ -1,0 +1,83 @@
+<!-- -->
+<launch>
+
+  <arg name="rviz" default="false" />
+  <arg name="filesDirectory" default="$(env HOME)/lidar_slam/loc" />
+  <arg name="extrinsic_file" default="$(find lidar_slam)/config/velodyne64e_xwyd_extrinsics.yaml" />
+  <arg name="scanPeriod" default="0.1" />
+  <arg name="scanRings" default="64" />
+  <arg name="organised" default="true" />
+  <arg name="cloud_topic" default="/velodyne_points" />
+
+  <group unless="$(arg organised)">
+  <node pkg="lidar_slam" type="multi_scan_registration_node" name="multi_scan_registration_node" output="screen">
+    <param name="lidar" value="Pandar40" /> <!-- options: VLP-16  HDL-32  HDL-64E Pandar40 -->
+    <param name="scanPeriod" value="$(arg scanPeriod)" />
+    <remap from="/multi_scan_points" to="$(arg cloud_topic)" />
+    <param name="nFeatureRegions" value="5" />
+    <param name="curvatureRegion" value="5" />
+    <param name="maxCornerSharp" value="4" />
+    <param name="maxCornerLessSharp" value="20" />
+    <param name="maxSurfaceFlat" value="6" />
+    <param name="surfaceCurvatureThreshold" value="0.1" />
+    <param name="cornerCurvatureThreshold" value="1.0" />
+    <param name="lessFlatFilterSize" value="0.6" />
+    <param name="cornerCheckEnable" value="false" />
+    <!--remap from="/imu/data" to="/imu_data"/-->
+  </node>
+  </group>
+
+  <group if="$(arg organised)">
+  <node pkg="lidar_slam" type="organised_scan_registration_node" name="organised_scan_registration_node" output="screen">
+    <param name="scanPeriod" value="$(arg scanPeriod)" />
+    <param name="scanRings" value="$(arg scanRings)" />
+    <remap from="/organised_scan_points" to="$(arg cloud_topic)" />
+    <param name="nFeatureRegions" value="5" />
+    <param name="curvatureRegion" value="5" />
+    <param name="maxCornerSharp" value="4" />
+    <param name="maxCornerLessSharp" value="20" />
+    <param name="maxSurfaceFlat" value="6" />
+    <param name="surfaceCurvatureThreshold" value="0.1" />
+    <param name="cornerCurvatureThreshold" value="1.0" />
+    <param name="lessFlatFilterSize" value="0.6" />
+    <param name="cornerCheckEnable" value="false" />
+  </node>
+  </group>
+
+  <node pkg="lidar_slam" type="laser_odometry_node" name="laser_odometry_node" output="screen">
+    <param name="scanPeriod" value="$(arg scanPeriod)" />
+    <param name="scale_rot_y" value="1.0" />
+    <param name="scale_trans_z" value="1.0" />
+    <param name="deltaTAbort" value="0.1" />
+    <param name="deltaRAbort" value="0.1" />
+  </node>
+
+  <node pkg="lidar_slam" type="laser_localization_node" name="laser_localization_node" output="screen">
+  	<param name="filesDirectory" value="$(arg filesDirectory)"/>
+    <param name="dynamicMode" value="true"/>
+    <param name="inputFrameSkip" value="1"/>
+    <param name="surroundMapPubSkip" value="5"/>
+    <param name="sendSurroundCloud" value="true"/>
+    <param name="sendRegisteredCloud" value="true"/>
+    <param name="useFullCloud" value="false"/>
+    <param name="filter_x" value="0.4"/>
+    <param name="filter_y" value="0.4"/>
+    <param name="filter_z" value="1.0"/>
+    <param name="extrinsic_file" value="$(arg extrinsic_file)"/>
+
+  </node>
+
+  <!--node pkg="lidar_slam" type="transform_maintenance_node" name="transform_maintenance_node" output="screen">
+  </node-->
+
+  <node pkg="lidar_slam" type="fpdReceiver" name="fpdReceiver" args="loc" output="screen">
+    	<param name="extrinsic_file" value="$(arg extrinsic_file)"/>
+  </node>
+
+  <node pkg="lidar_slam" type="imuReceiver" name="imuReceiver" output="screen">
+  </node>
+
+  <group if="$(arg rviz)">
+    <node launch-prefix="nice" pkg="rviz" type="rviz" name="rviz" args="-d $(find lidar_slam)/rviz_cfg/localization.rviz" />
+  </group>
+</launch>

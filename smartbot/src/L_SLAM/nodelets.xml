@@ -1,0 +1,48 @@
+<library path="lib/libMultiScanRegistrationNodelet">
+  <class name="lidar_slam/MultiScanRegistrationNodelet" 
+  type="lidar_slam::MultiScanRegistrationNodelet" 
+  base_class_type="nodelet::Nodelet" />
+</library>
+
+<library path="lib/libOrganisedScanRegistrationNodelet">
+  <class name="lidar_slam/OrganisedScanRegistrationNodelet" 
+  type="lidar_slam::OrganisedScanRegistrationNodelet" 
+  base_class_type="nodelet::Nodelet" />
+</library>
+
+<library path="lib/libLaserOdometryNodelet">
+  <class name="lidar_slam/LaserOdometryNodelet" 
+  type="lidar_slam::LaserOdometryNodelet" 
+  base_class_type="nodelet::Nodelet" />
+</library>
+
+<library path="lib/libLaserMappingNodelet">
+  <class name="lidar_slam/LaserMappingNodelet" 
+  type="lidar_slam::LaserMappingNodelet" 
+  base_class_type="nodelet::Nodelet" />
+</library>
+
+<library path="lib/libLaserMappingLocalNodelet">
+  <class name="lidar_slam/LaserMappingLocalNodelet" 
+  type="lidar_slam::LaserMappingLocalNodelet" 
+  base_class_type="nodelet::Nodelet" />
+</library>
+
+<library path="lib/libLaserLocalizationNodelet">
+  <class name="lidar_slam/LaserLocalizationNodelet" 
+  type="lidar_slam::LaserLocalizationNodelet" 
+  base_class_type="nodelet::Nodelet" />
+</library>
+
+<library path="lib/libTransformMaintenanceNodelet">
+  <class name="lidar_slam/TransformMaintenanceNodelet" 
+  type="lidar_slam::TransformMaintenanceNodelet" 
+  base_class_type="nodelet::Nodelet" />
+</library>
+
+
+<library path="lib/libGraphNodelet">
+  <class name="pose_graph/GraphNodelet" 
+  type="pose_graph::GraphNodelet" 
+  base_class_type="nodelet::Nodelet" />
+</library>

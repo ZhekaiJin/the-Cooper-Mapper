@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<package>
+  <name>lidar_slam</name>
+  <version>0.0.0</version>
+
+  <description>
+    This is a ROS implementation of Lidar SLAM solution for Velodyne likes lidar.
+  </description>
+
+  <maintainer email="jin4@cooper.edu">zhekaijin</maintainer>
+
+  <license>BSD</license>
+
+  <author email="jin4@cooper.edu">zhekaijin</author>
+  
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>nav_msgs</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>tf</build_depend>
+  <build_depend>pluginlib</build_depend>
+  <build_depend>nodelet</build_depend>
+  <build_depend>hdmap_msgs</build_depend>
+
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>nav_msgs</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>tf</run_depend>
+  <run_depend>pluginlib</run_depend>
+  <run_depend>nodelet</run_depend>
+  <run_depend>hdmap_msgs</run_depend>
+
+  <test_depend>rostest</test_depend>
+  <test_depend>rosbag</test_depend>
+
+  <export>
+    <nodelet plugin="${prefix}/nodelets.xml"/>
+  </export>
+
+</package>

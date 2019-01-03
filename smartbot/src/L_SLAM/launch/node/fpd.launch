@@ -1,0 +1,12 @@
+<!-- -->
+<launch>
+
+  <arg name="extrinsic_file" default="$(find lidar_slam)/config/velodyne64e_xwyd_extrinsics.yaml" /> 
+  <node pkg="lidar_slam" type="fpdReceiver" name="fpdReceiver_node" args="loc" output="screen">
+    	<param name="extrinsic_file" value="$(arg extrinsic_file)"/>
+    	<param name="latitude" value="39.9990678"/>
+    	<param name="longitude" value="116.3312908"/>
+    	<param name="altitude" value="40.00"/>
+  </node>
+
+</launch>
