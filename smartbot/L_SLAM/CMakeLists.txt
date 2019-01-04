@@ -55,7 +55,7 @@ catkin_package(
 
 add_definitions( -march=native )
 
-add_subdirectory(src/frame_match)
+add_subdirectory(src/scan_to_scan_match)
 add_subdirectory(src/odometry)
 add_subdirectory(src/pose_graph)
 add_subdirectory(src/io)
