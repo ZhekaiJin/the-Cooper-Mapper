@@ -4,8 +4,6 @@ This is a implementation of the simultaneous localization and mapping (SLAM) sol
 
 ![alt text](pics/car.jpg)
 
-
-
 ## Prerequisites
 
 ### Hardware
@@ -48,6 +46,21 @@ This is the ground truth floor planning for Cooper Union 6th Floor.
 
 Block diagram of the lidar odometry and mapping software system.
 
+## Acknowledgments
+
+* **Ji Zhang** and **Sanjiv Singh** - *LOAM* - [LOAM](https://www.ri.cmu.edu/publications/loam-lidar-odometry-and-mapping-in-real-time/)
+
+## Comparison with Original Work
+
+* Add encapsulation to the repetitive code block in the original work
+* Refactor the work into modules 
+* Add Ros nodelet support to avoid extra copying cost
+* Add map management code 
+* Avoid hard coding and support configuration support
+* Optimized data strcuture usage
+* Refer to Google Cartographer for some modules
+* Add relocalization 
+
 ## Versioning
 
 This work use [SemVer](http://semver.org/) for versioning. This repo now contains version 1.0. 
@@ -58,9 +71,5 @@ This work use [SemVer](http://semver.org/) for versioning. This repo now contain
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](../../LICENSE) file for details.
-
-## Acknowledgments
-
-* **Ji Zhang** and **Sanjiv Singh** - *LOAM* - [PurpleBooth](https://www.ri.cmu.edu/publications/loam-lidar-odometry-and-mapping-in-real-time/)
 
 
