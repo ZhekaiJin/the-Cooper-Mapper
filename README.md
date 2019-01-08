@@ -45,7 +45,7 @@ We implemented Visual SLAM algorithms based on [ORB-SLAM2](https://arxiv.org/abs
 
 ### Continuous-Time SLAM 
 
-We are constructing a 3D Lidar from the RPLidar2 by attaching it on a tilt unit with a rotating mechanism and are planning to extend the LOAM module to integrate Lidar and Visual SLAM methods. We have extended and adapted the LOAM module to our system and please refer to the [L-SLAM submodule](L_SLAM/README.md) for details.
+We are constructing a 3D Lidar from the RPLidar2 by attaching it on a tilt unit with a rotating mechanism and are planning to extend the LOAM module to integrate Lidar and Visual SLAM methods. We have extended and adapted the LOAM module to our system and please refer to the [L-SLAM submodule](L_SLAM/) for details.
 
 ## Block Diagram
 
