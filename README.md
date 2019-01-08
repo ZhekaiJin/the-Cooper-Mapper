@@ -13,7 +13,7 @@ Visual SLAM pipelines are more robust in dynamic scenes, and computationally les
 * Jetson TX2
 * Sparkfun IMU 
 
-![alt text](assets/pics/car.jpg)
+![alt text](Assets/pics/car.jpg)
 *Our 2D mapping Setup* (3D Lidar Scanner not shown)
 
 
@@ -28,7 +28,7 @@ This is the experimental run of our Lidar SLAM 2D algorithm based on [Gmapping](
 
 This is the ground truth floor planning map for Cooper Union 6th Floor.
 
-![alt text](assets/pics/6th.png)
+![alt text](Assets/pics/6th.png)
 *floor planning map*
 
 ### 3D Reconstruction
