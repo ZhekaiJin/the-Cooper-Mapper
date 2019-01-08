@@ -35,7 +35,10 @@ This is the ground truth floor planning map for Cooper Union 6th Floor.
 
 This is the surface reconstruction of [SMAC<sup>2</sup>](https://engfac.cooper.edu/nshlayan/689) based on [ORB-SLAM2](https://arxiv.org/abs/1610.06475) and [ZED API](https://www.stereolabs.com/docs/api/).
 
-<iframe allowfullscreen webkitallowfullscreen width="640" height="480" frameborder="0" seamless src="https://p3d.in/e/x1fMl+load"></iframe>
+![alt text](Assets/pics/12.png)
+*Elas Support Points and Delauny Triangles*
+
+[![Watch the Model](Assets/pics/smac2.png)](https://p3d.in/e/x1fMl+load+spin)
 *SMAC<sup>2</sup> Lab*
 
 ### Continuous-Time SLAM 
