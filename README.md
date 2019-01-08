@@ -23,7 +23,7 @@ Visual SLAM pipelines are more robust in dynamic scenes, and computationally les
 
 This is the experimental run of our Lidar SLAM 2D algorithm based on [Gmapping](https://ieeexplore.ieee.org/document/4084563).
 
-![Running in the Cooper Union 6th floor](assets/pics/lidar_slam.png)
+![Running in the Cooper Union 6th floor](Assets/pics/lidar_slam.png)
 *Running in the Cooper Union 6th floor*
 
 This is the ground truth floor planning map for Cooper Union 6th Floor.
