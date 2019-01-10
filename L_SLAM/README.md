@@ -3,7 +3,7 @@
 This is a implementation of the simultaneous localization and mapping (SLAM) solution for Lidar systems. The implementation is based on the method described [here](https://www.ri.cmu.edu/publications/loam-lidar-odometry-and-mapping-in-real-time/) and aims to be a stand-alone module to support any mobile Lidar systems and mostly Velodyne LiDAR. This work is under the [Cooper Mapper](../README.md) Porject
 
 ## LOAM in a nutshell
-[Lidar Odometry and Mapping ](https://www.ri.cmu.edu/publications/loam-lidar-odometry-and-mapping-in-real-time/) is the the-state-of-arts Lidar SLAM algorithm that is able to estimate odometry and construct a map simultaneously. It has keypoints granularity and needs data input from a 3D Lidar setup and optional IMU data. 
+[Lidar Odometry and Mapping ](https://www.ri.cmu.edu/publications/loam-lidar-odometry-and-mapping-in-real-time/) is the the-state-of-arts Lidar SLAM algorithm that is able to estimate odometry and construct a map simultaneously. It has keypoints granularity and needs data input from a 3D Lidar setup and optional IMU data.
 	The algorithm is able to run in real-time in modest hardware. It can be summarized in the following steps:
 
 1. Feature extraction: incoming point clouds are unwarped with inertial measurements. Plane and edge features are extracted.
@@ -15,34 +15,34 @@ The odometry and mapping modules estimate incremental trans- formations by emplo
 
 ## Block Diagram
 
-![alt text](../Assets/pics/block-diagram.png)
+![alt text](../assets/pics/block-diagram.png)
 
 Block diagram of the lidar odometry and mapping software system.
 
 ## Refactorization
 
 * Add encapsulation to the repetitive code block in the original work
-* Refactor the work into modules 
+* Refactor the work into modules
 * Optimized data strcuture usage
 * Avoid hard coding and support configuration support
 
 ## Extension
 * Add Ros nodelet support to avoid extra copying cost
-* Add map management code 
-* Add relocalization module 
+* Add map management code
+* Add relocalization module
 * Refer to Google Cartographer for some modules
 
 ## Prerequisites
 
 ### Hardware
-* A Lidar 
+* A Lidar
 * A movable power source.
 * A mobile computing platform if you want to run the algorithm in real time
 
 ### Software
 
 * ROS Kinetic or Later.
-* PCL, g2o, Eigen 
+* PCL, g2o, Eigen
 
 
 ## Build (this Module Only)
@@ -51,21 +51,19 @@ git clone https://github.com/ZhekaiJin/the-Cooper-Mapper.git
 cp the-Cooper-Mapper/smartbot/L_SLAM/ your_ros_working_space/src
 cd your_ros_working_space
 catkin_make -j4
-```	
+```
 
 ## Versioning
 
-This work use [SemVer](http://semver.org/) for versioning. This repo now contains version 1.0. 
+This work use [SemVer](http://semver.org/) for versioning. This repo now contains version 1.0.
 
 ## Acknowledgments
 
 * **Ji Zhang** and **Sanjiv Singh** - *LOAM* - [LOAM](https://www.ri.cmu.edu/publications/loam-lidar-odometry-and-mapping-in-real-time/)
 
 ## Authors
-**Zhekai Jin** 
+**Zhekai Jin**
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](../../LICENSE) file for details.
-
-
