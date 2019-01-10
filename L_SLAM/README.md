@@ -1,6 +1,6 @@
 # L - SLAM Module
 
-This is an implementation of the simultaneous localization and mapping (SLAM) solution for Lidar systems. The implementation is based on the method described [here](https://www.ri.cmu.edu/publications/loam-lidar-odometry-and-mapping-in-real-time/) and aimed to be a stand-alone module to support any mobile Lidar systems and mostly Velodyne LiDAR. This work is under the [Cooper Mapper](../) Project
+This is an implementation of the simultaneous localization and mapping (SLAM) solution for Lidar systems. The implementation is based on the method described [here](https://www.ri.cmu.edu/publications/loam-lidar-odometry-and-mapping-in-real-time/) and aimed to be a stand-alone module to support any mobile Lidar systems and mostly Velodyne Lidar. This work is under the [Cooper Mapper](https://github.com/ZhekaiJin/the-Cooper-Mapper) Project
 
 ## LOAM in a nutshell
 [Lidar Odometry and Mapping ](https://www.ri.cmu.edu/publications/loam-lidar-odometry-and-mapping-in-real-time/) is the the-state-of-arts Lidar SLAM algorithm that can estimate odometry and construct a map simultaneously. It has keypoints granularity and needs data input from a 3D Lidar setup and optional IMU data.
@@ -17,7 +17,7 @@ The odometry and mapping modules estimate incremental transformations by employi
 
 ![alt text](../assets/pics/block-diagram.png)
 
-Block diagram of the lidar odometry and mapping software system.
+Block diagram of the Lidar odometry and mapping software system.
 
 ## Refactorization
 * Refactor the work into modules
