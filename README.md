@@ -13,7 +13,7 @@ Visual SLAM pipelines are more robust in dynamic scenes, and computationally les
 * Jetson TX2
 * Sparkfun IMU 
 
-![alt text](Assets/pics/car.jpg)
+![alt text](assets/pics/car.jpg)
 *Our 2D mapping Setup* (3D Lidar Scanner not shown)
 
 
@@ -23,12 +23,12 @@ Visual SLAM pipelines are more robust in dynamic scenes, and computationally les
 
 This is the experimental run of our Lidar SLAM 2D algorithm based on [Gmapping](https://ieeexplore.ieee.org/document/4084563).
 
-![Running in the Cooper Union 6th floor](Assets/pics/lidar_slam.png)
+![Running in the Cooper Union 6th floor](assets/pics/lidar_slam.png)
 *Running in the Cooper Union 6th floor*
 
 This is the ground truth floor planning map for Cooper Union 6th Floor.
 
-![alt text](Assets/pics/6th.png)
+![alt text](assets/pics/6th.png)
 *floor planning map*
 
 ### Visual SLAM & 3D Reconstruction
@@ -36,11 +36,11 @@ This is the ground truth floor planning map for Cooper Union 6th Floor.
 We implemented Visual SLAM algorithms based on [ORB-SLAM2](https://arxiv.org/abs/1610.06475) and [ZED API](https://www.stereolabs.com/docs/api/) at the [SMAC<sup>2</sup>](https://engfac.cooper.edu/nshlayan/689) Lab.
 
 
-![alt text](Assets/pics/12.png)
+![alt text](assets/pics/12.png)
 
 *Elas Support Points and Delauny Triangles*
 
-[![Watch the Model](Assets/pics/smac2.png)](https://p3d.in/e/x1fMl+load+spin)
+[![Watch the Model](assets/pics/smac2.png)](https://p3d.in/e/x1fMl+load+spin)
 *3D surface reconstruction of SMAC<sup>2</sup> Lab (click on the image to view the model)*
 
 ### Continuous-Time SLAM 

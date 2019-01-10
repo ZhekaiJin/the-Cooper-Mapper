@@ -1,0 +1,9 @@
+<launch>
+
+<include file="$(find differential_drive)/launch/local_teleop.launch"/>
+<include file="$(find rplidar_ros)/launch/rplidar.launch"/>
+
+<node pkg="differential_drive" type="diff_tf.py" name="encoder_to_odom" />
+<node pkg="robot_setup_tf" type="robot_setup_tf_node" name="base_to_lidar_tf" />
+
+</launch>
