@@ -8,9 +8,10 @@ Visual SLAM pipelines are more robust in dynamic scenes, and computationally les
 ## Hardware
 
 * RPLidar2 laser range finder
-* custom-tilt device for the planar Lidar
+* custom-tilt device for the planar Lidar (not required for 2D Lidar mapping)
+* Ignore the above if you have a 3D Lidar (we are introducing Velodyne (VLP-16) into the project)
 * Stereolabs ZED stereo camera
-* Jetson TX2
+* Jetson TX2 (or )
 * Sparkfun IMU
 
 ![alt text](assets/pics/car.jpg)
@@ -56,15 +57,15 @@ We implemented ORB-SLAM2 with ZED API and are planning to add the visual signatu
 [![Watch the Model](assets/pics/smac2.png)](https://p3d.in/e/x1fMl+load+spin)
 *3D surface reconstruction of SMAC<sup>2</sup> Lab (click on the image to view the model)*
 
-### Continuous-Time SLAM
+### Continuous-Time SLAM & Multisensor Data Fusion 
 
-We are constructing a 3D Lidar from the RPLidar2 by attaching it on a tilt unit with a rotating mechanism (or we can get a Velodyne-16 with external funding) and are planning to extend the LOAM module to integrate Lidar and Visual SLAM methods. Our fundamental idea is to allow optional image registration (timestamps-based) with Lidar keyframes and to use the-state-of-art dense matching and SegMatch modules for place recognition and loop closure. We have extended and adapted the LOAM module to our system and please refer to the [**L-SLAM Submodule**](L_SLAM/) for details.
+We are constructing a 3D Lidar from the RPLidar2 by attaching it on a tilt unit with a rotating mechanism (or we can get a Velodyne-16 with external funding) and are planning to extend the LOAM module to integrate Lidar and Visual SLAM methods. Our fundamental idea is to allow optional image registration (timestamps-based) with Lidar keyframes and to use the state-of-the-art dense matching and SegMatch modules for place recognition and loop closure. We have extended and adapted the LOAM module to our system and please refer to the [**L-SLAM Submodule**](L_SLAM/) for details.
 
 ## Block Diagram
 
-![alt text](pics/block-diagram.png)
+![alt text](assets/pics/vl system.jpg)
 
-*Block diagram of the Cooper Mapper Project*
+*Block diagram of the Cooper Mapper Project's Fusion Pipeline*
 
 ## Acknowledgments
 
