@@ -63,7 +63,7 @@ We are constructing a 3D Lidar from the RPLidar2 by attaching it on a tilt unit 
 
 ## Block Diagram
 
-![alt text](assets/pics/vl system.jpg)
+![alt text](assets/pics/vl-system.jpg)
 
 *Block diagram of the Cooper Mapper Project's Fusion Pipeline*
 
