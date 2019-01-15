@@ -7,11 +7,11 @@ Visual SLAM pipelines are more robust in dynamic scenes, and computationally les
 
 ## Hardware
 
-* RPLidar2 laser range finder
+* [RPLidar2](https://www.slamtec.com/en/Lidar/A2) laser range finder
 * custom-tilt device for the planar Lidar (not required for 2D Lidar mapping)
-* Ignore the above if you have a 3D Lidar (we are introducing Velodyne (VLP-16) into the project)
-* Stereolabs ZED stereo camera
-* Jetson TX2 (or )
+* Ignore the above if you have a 3D Lidar (we are introducing Velodyne ([VLP-16](https://velodynelidar.com/vlp-16.html)) into the project)
+* Stereolabs [ZED](https://www.stereolabs.com/zed/) stereo camera
+* [Jetson TX2](https://developer.nvidia.com/embedded/buy/jetson-tx2) (We are upgrading it to a Nvidia [Drive PX2](https://www.nvidia.com/en-au/self-driving-cars/drive-px/) for self-driving pipeline design on a test vehicle)
 * Sparkfun IMU
 
 ![alt text](assets/pics/car.jpg)
