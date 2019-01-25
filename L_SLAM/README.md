@@ -53,7 +53,7 @@ catkin_make -j4
 ```
 ## LSLAM Block Diagram
 
-![alt text](../assets/pics/vl system.jpg)
+![alt text](../assets/pics/vl-system.jpg)
 
 *Block diagram of the Cooper Mapper Project's Fusion Pipeline* 
 (not fully implemented yet)
