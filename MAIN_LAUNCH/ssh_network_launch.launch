@@ -1,0 +1,7 @@
+<launch>
+
+<env name="ROS_MASTER_URI" value="http://10.42.0.1:11311" />
+<env name="ROS_IP" value="10.42.0.1" />
+<include file="/home/nvidia/ros_workspace/src/MAIN_LAUNCH/ssh_launch.launch"/> 
+
+</launch>
