@@ -61,6 +61,12 @@ We implemented ORB-SLAM2 with ZED API and are planning to add the visual signatu
 
 We are constructing a 3D Lidar from the RPLidar2 by attaching it on a tilt unit with a rotating mechanism (or we can get a Velodyne-16 with external funding) and are planning to extend the LOAM module to integrate Lidar and Visual SLAM methods. Our fundamental idea is to allow optional image registration (timestamps-based) with Lidar keyframes and to use the state-of-the-art dense matching and SegMatch modules for place recognition and loop closure. We have extended and adapted the LOAM module to our system and please refer to the [**L-SLAM Submodule**](L_SLAM/) for details.
 
+
+![Watch the Model](assets/demo.gif)
+
+*LOAM in action for KITTI 08.*
+
+
 ## Block Diagram
 
 ![alt text](assets/pics/vl-system.jpg)
