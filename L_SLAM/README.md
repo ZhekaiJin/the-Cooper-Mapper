@@ -1,9 +1,5 @@
 # L - SLAM Module
 
-![Watch the Model](../assets/demo.gif)
-
-*LSLAM in action for KITTI 08.*
-
 This is an implementation of the simultaneous localization and mapping (SLAM) solution for Lidar systems. The implementation is based on the method described in [this paper](https://www.ri.cmu.edu/publications/loam-lidar-odometry-and-mapping-in-real-time/) and aimed to be a stand-alone module to support any mobile Lidar systems and mostly Velodyne Lidar. This module is intended to be further enhanced to be a robust Lidar module with optional stereo image data input to support **accurate mapping**, **global loop closure** and **large-scale online SLAM** for challenging and complicated environment. 
 
 P.S. This work is under the [Cooper Mapper](https://github.com/ZhekaiJin/the-Cooper-Mapper) Project.
@@ -19,6 +15,10 @@ P.S. This work is under the [Cooper Mapper](https://github.com/ZhekaiJin/the-Coo
 4. Transform integration: the motion estimates from the odometry and mapping modules are integrated.
 
 The odometry and mapping modules estimate incremental transformations by employing a variant of point-to-point and point-to-plane ICP. For every pair of planar features belonging to different scans, a point-to-plane constraint is created. Similarly, point-to-point constraints are generated between edge features. Both sets of constraints are stacked into a matrix, and Singular Value Decomposition (SVD) is employed to estimate the optimal transformation.
+
+![Watch the Model](../assets/demo.gif)
+
+*LOAM in action for KITTI 08.*
 
 ## Block Diagram
 
