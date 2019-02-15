@@ -22,7 +22,7 @@ Visual SLAM pipelines are more robust in dynamic scenes, and computationally les
 
 ### 2D Lidar SLAM
 
-This is the experimental run of our Lidar SLAM 2D algorithm based on [Gmapping](https://ieeexplore.ieee.org/document/4084563).
+This is the experimental run of our Lidar SLAM 2D algorithm based on [Gmapping](https://ieeexplore.ieee.org/document/4084563). We are also modifying the state-of-the-art SLAM module [Cartographer](https://ieeexplore.ieee.org/document/7487258?arnumber=7487258) with lazy decision to get similiar result.
 
 ![Running in the Cooper Union 6th floor](assets/pics/lidar_slam.png)
 *Running in the Cooper Union 6th floor*
