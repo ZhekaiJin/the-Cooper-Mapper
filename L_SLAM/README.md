@@ -16,7 +16,7 @@ P.S. This work is under the [Cooper Mapper](https://github.com/ZhekaiJin/the-Coo
 
 The odometry and mapping modules estimate incremental transformations by employing a variant of point-to-point and point-to-plane ICP. For every pair of planar features belonging to different scans, a point-to-plane constraint is created. Similarly, point-to-point constraints are generated between edge features. Both sets of constraints are stacked into a matrix, and Singular Value Decomposition (SVD) is employed to estimate the optimal transformation.
 
-## Block Diagram
+## LOAM Software System Block Diagram
 
 ![alt text](../assets/pics/block-diagram.png)
 
