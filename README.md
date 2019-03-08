@@ -86,7 +86,7 @@ We are constructing a 3D Lidar from the RPLidar2 by attaching it on a tilt unit 
 This work use [SemVer](http://semver.org/) for versioning. This repo now contains version 1.0.
 
 ## Authors
-**Zhekai Jin**, **Simon Shao**, **Minjoon So**
+**[Zhekai Jin](https://zhekaijin.github.io/)**, **Simon Shao**, **Minjoon So**
 
 ## License
 
