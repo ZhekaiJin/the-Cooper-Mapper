@@ -88,6 +88,10 @@ This work use [SemVer](http://semver.org/) for versioning. This repo now contain
 ## Authors
 **[Zhekai Jin](https://zhekaijin.github.io/)**, **Simon Shao**, **Minjoon So**
 
+## Affiliated Lab
+[Sustainable, Mobile, & Agile Connected Communities Lab](https://engfac.cooper.edu/nshlayan/689)
+
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
