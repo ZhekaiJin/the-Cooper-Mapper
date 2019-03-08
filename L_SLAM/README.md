@@ -71,7 +71,7 @@ This work use [SemVer](http://semver.org/) for versioning. This repo now contain
 * **Ji Zhang** and **Sanjiv Singh** - *LOAM* - [LOAM](https://www.ri.cmu.edu/publications/loam-lidar-odometry-and-mapping-in-real-time/)
 
 ## Authors
-**Zhekai Jin**
+**[Zhekai Jin](https://zhekaijin.github.io/)**
 
 ## License
 
