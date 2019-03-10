@@ -2,6 +2,15 @@
 
 The Cooper Mapper is an interdisplinary research project conducted at Cooper Union aiming to investigate the multisensor data fusion problem, specifically on the topic of Simultaneous Localization and Mapping (SLAM).
 
+## Related Publication
+
+Zhekai Jin, Yifei Shao, Minjoon So, **"A MultiSensor Data Fusion Approach For Simultaneous Localization And Mapping"**, *IEEE Region 1 Annual Student Conference (StuCon), 2019*, Manuscript Submitted.
+<br/>:star: Oral Presentation, StuCon'19 :star:
+<br/>:star: 1st Place at 2019 Student Papers Competition :star: 
+
+ 
+
+
 ## Vision
 Visual SLAM pipelines are more robust in dynamic scenes, and computationally less expensive, but extremely sensitive to changes in illumination and appearance. On the other hand, LiDAR SLAM systems work more consistently over changes in lighting conditions or seasons, by exploiting the geometric structure of the world. Our work focuses on methods that fully leverage the advantages of Lidar and Camera to improve the **accuracy, robustness and efficency** of SLAM such as place recognition techniques. We look specifically at problems like real-time loop closures, global localization, sensor degeneracy problems.
 
