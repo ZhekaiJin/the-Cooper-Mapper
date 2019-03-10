@@ -4,7 +4,7 @@ The Cooper Mapper is an interdisplinary research project conducted at Cooper Uni
 
 ## Related Publication
 
-Zhekai Jin, Yifei Shao, and Minjoon So. **"A MultiSensor Data Fusion Approach For Simultaneous Localization And Mapping"**, *IEEE Region 1 Annual Student Conference (StuCon), 2019*, Manuscript Submitted.
+**[Zhekai Jin](https://zhekaijin.github.io/)**, Yifei Shao, and Minjoon So. **"A MultiSensor Data Fusion Approach For Simultaneous Localization And Mapping"**, *IEEE Region 1 Annual Student Conference (StuCon), 2019*, Manuscript Submitted.
 <br/>:star: Oral Presentation, StuCon'19 :star:
 <br/>:star: 1st Place at 2019 Student Papers Competition :star: 
 
@@ -95,7 +95,7 @@ We are constructing a 3D Lidar from the RPLidar2 by attaching it on a tilt unit 
 This work use [SemVer](http://semver.org/) for versioning. This repo now contains version 1.0.
 
 ## Authors
-**[Zhekai Jin](https://zhekaijin.github.io/)**, **Simon Shao**, **Minjoon So**
+**[Zhekai Jin](https://zhekaijin.github.io/)**, **Simon Shao**, and **Minjoon So**.
 
 ## Affiliated Lab
 [Sustainable, Mobile, & Agile Connected Communities Lab](https://engfac.cooper.edu/nshlayan/689)
