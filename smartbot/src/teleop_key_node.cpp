@@ -49,11 +49,14 @@ int main(int argc, char** argv) {
 		ROS_INFO("waiting for character\n");
         ch = getchar();
         geometry_msgs::Twist msg;
+	float lin_speed = 0.15;
+	float rot_speed = 1.2;
+	float rot_lin_speed = 0;
         if (ch == 'q'){
 			ROS_INFO("Shutting Down...\n");
 			ros::shutdown();
         } else if (ch == 'w'){
-			msg.linear.x = 0.2;
+			msg.linear.x = lin_speed;
 			msg.linear.y = 0;//unit? //axis?
 			msg.linear.z = 0;
 			msg.angular.x = 0;
@@ -61,23 +64,23 @@ int main(int argc, char** argv) {
 			msg.angular.z = 0;
 			
 		} else if (ch == 'a'){
-			msg.linear.x = 0.2;
+			msg.linear.x = rot_lin_speed;
 			msg.linear.y = 0;//unit? //axis?
 			msg.linear.z = 0;
 			msg.angular.x = 0;
 			msg.angular.y = 0;//unit? //axis?
-			msg.angular.z = 1;
+			msg.angular.z = -rot_speed;
 			
 		} else if (ch == 'd'){
-			msg.linear.x = 0.2;
+			msg.linear.x = rot_lin_speed;
 			msg.linear.y = 0;//unit? //axis?
 			msg.linear.z = 0;
 			msg.angular.x = 0;
 			msg.angular.y = 0;//unit? //axis?
-			msg.angular.z = -1;
+			msg.angular.z = rot_speed;
 			
 		} else if (ch == 's'){
-			msg.linear.x = -0.2;
+			msg.linear.x = -lin_speed;
 			msg.linear.y = 0;//unit? //axis?
 			msg.linear.z = 0;
 			msg.angular.x = 0;
