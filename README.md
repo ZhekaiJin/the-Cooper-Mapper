@@ -4,8 +4,8 @@ The Cooper Mapper is an interdisplinary research project conducted at Cooper Uni
 
 ## Related Publication
 
-**[Zhekai Jin](https://zhekaijin.github.io/)**, Yifei Shao, and Minjoon So. **"A MultiSensor Data Fusion Approach For Simultaneous Localization And Mapping"**, *IEEE Region 1 Annual Student Conference (StuCon), 2019*, Manuscript Submitted.
-<br/>:star: Oral Presentation, StuCon'19 :star:
+**[Zhekai Jin](https://zhekaijin.github.io/)**, Yifei Shao, Minjoon So, et al. **"A MultiSensor Data Fusion Approach For Simultaneous Localization And Mapping"**, *IEEE Intelligent Transportation Systems Conference (ITSC), 2019*, in Press.
+<br/>:star: Oral Presentation, IEEE Region 1 Annual Student Conference (StuCon) :star:
 <br/>:star: 1st Place at 2019 Student Papers Competition :star: 
 
  
@@ -98,7 +98,7 @@ This work use [SemVer](http://semver.org/) for versioning. This repo now contain
 **[Zhekai Jin](https://zhekaijin.github.io/)**, **Simon Shao**, and **Minjoon So**.
 
 ## Affiliated Lab
-[Sustainable, Mobile, & Agile Connected Communities Lab](https://engfac.cooper.edu/nshlayan/689)
+[Autonomy Lab, Cooper Union](https://engfac.cooper.edu/nshlayan/689)
 
 
 ## License
